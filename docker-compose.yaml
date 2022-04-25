@@ -1,0 +1,12 @@
+version: '3'
+services:
+  cache:
+    image: redis
+    container_name: redis_server
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server # --requirepass StrongPassword
+    volumes: 
+      - $PWD/redis-data:/data
+      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
